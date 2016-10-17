@@ -17,6 +17,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.intro.IIntroManager;
+import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.progress.UIJob;
 import org.jboss.tools.windup.ui.WindupUIPlugin;
 import org.jboss.tools.windup.ui.internal.Messages;
@@ -39,6 +41,11 @@ public class ShowGettingStartedAction implements IWorkbenchWindowActionDelegate 
 				monitor.beginTask(Messages.showWindupGettingStarted, 1);
 				try {
 					try {
+						IIntroManager introMgr = window.getWorkbench().getIntroManager();
+						IIntroPart intro = introMgr.getIntro();
+						if (intro != null) {
+							introMgr.closeIntro(intro);
+						}
 						monitor.worked(1);
 						window.getActivePage().openEditor(EditorInput.INSTANCE, GettingStartedEditor.VIEW_ID);
 						return Status.OK_STATUS;
