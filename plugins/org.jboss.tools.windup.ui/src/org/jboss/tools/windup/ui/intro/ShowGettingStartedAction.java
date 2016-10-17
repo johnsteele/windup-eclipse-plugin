@@ -17,9 +17,11 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroManager;
 import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.progress.UIJob;
+import org.jboss.tools.windup.ui.WindupPerspective;
 import org.jboss.tools.windup.ui.WindupUIPlugin;
 import org.jboss.tools.windup.ui.internal.Messages;
 import org.jboss.tools.windup.ui.intro.GettingStartedEditor.EditorInput;
@@ -46,6 +48,7 @@ public class ShowGettingStartedAction implements IWorkbenchWindowActionDelegate 
 						if (intro != null) {
 							introMgr.closeIntro(intro);
 						}
+						PlatformUI.getWorkbench().showPerspective(WindupPerspective.ID, window);
 						monitor.worked(1);
 						window.getActivePage().openEditor(EditorInput.INSTANCE, GettingStartedEditor.VIEW_ID);
 						return Status.OK_STATUS;

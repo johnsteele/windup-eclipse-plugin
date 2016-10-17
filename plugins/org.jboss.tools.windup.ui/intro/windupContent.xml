@@ -6,7 +6,7 @@
             <link label="Windup Getting Started"
                 url="http://org.eclipse.ui.intro/runAction?pluginId=org.jboss.tools.windup.ui&amp;class=org.jboss.tools.windup.ui.intro.ShowGettingStartedAction&amp;id=org.jboss.tools.windup.ui.action.gettingStarted"
                 id="windup-getting-started" style-id="content-link">
-                <text>Get started with the Windup Eclipse tools</text>
+                <text>Get started with Windup Eclipse tools</text>
             </link>
         </group>
     </extensionContent>
